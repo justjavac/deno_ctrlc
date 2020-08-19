@@ -1,4 +1,4 @@
-# deno_ctrlc **WIP**
+# deno_ctrlc
 
 [![tag](https://img.shields.io/github/release/justjavac/deno_ctrlc)](https://github.com/justjavac/deno_ctrlc/releases)
 [![Build Status](https://github.com/justjavac/deno_ctrlc/workflows/ci/badge.svg?branch=master)](https://github.com/justjavac/deno_ctrlc/actions)
@@ -7,7 +7,22 @@
 
 Cross platform handling of Ctrl-C signals.
 
-⚠️ **WIP**
+## Permissions
+
+- `--unstable`
+
+## Usage
+
+```ts
+import { setHandler, Disposable } from "https://deno.land/x/ctrlc/mod.ts";
+
+const ctrlc: Disposable = setHandler(() => {
+    console.log('press ctrl + c, will exit');
+    Deno.exit();
+})
+
+// loop
+```
 
 ### License
 

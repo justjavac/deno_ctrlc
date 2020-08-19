@@ -1,15 +1,42 @@
 /**
- * Every exported symbol ideally should have a documentation line.
- *
- * It is important that documentation is easily human readable,
- * but there is also a need to provide additional styling information to ensure
- * generated documentation is more rich text.
- * Therefore JSDoc should generally follow markdown markup to enrich the text.
- *
- * follow https://deno.land/std/style_guide.md
- *
- * @param foo - Description of non obvious parameter
+ * Object that releases resources when "dispose" is invoked.
  */
-export default function starter(foo: string): string {
-  return foo;
+export interface Disposable {
+  /**
+   * Releases any resources held by the implementing object.
+   */
+  dispose(): void;
+}
+
+function fnExit() {
+  Deno.exit();
+}
+
+let disposed: boolean = false;
+
+export function setHandler(onCtrlC: () => void = fnExit): Disposable {
+  if (!Deno.isatty(Deno.stdin.rid)) {
+    return {
+      dispose: () => {},
+    };
+  }
+
+  Deno.setRaw(Deno.stdin.rid, true);
+  disposed = false;
+
+  const data: Uint8Array = new Uint8Array(1);
+  Deno.stdin.read(data).then(() => {
+    if (disposed) return;
+    if (data[0] === 0x03) {
+      onCtrlC();
+    }
+  });
+
+  return {
+    dispose: () => {
+      disposed = true;
+      Deno.setRaw(Deno.stdin.rid, false);
+      // pause
+    },
+  };
 }
