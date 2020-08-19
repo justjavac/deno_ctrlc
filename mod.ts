@@ -12,7 +12,7 @@ function fnExit() {
   Deno.exit();
 }
 
-let disposed: boolean = false;
+let disposed = false;
 
 export function setHandler(onCtrlC: () => void = fnExit): Disposable {
   if (!Deno.isatty(Deno.stdin.rid)) {
