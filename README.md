@@ -14,16 +14,17 @@ Cross platform handling of Ctrl-C signals.
 ## Usage
 
 ```ts
-import { setHandler, Disposable } from "https://deno.land/x/ctrlc/mod.ts";
+import { Disposable, setHandler } from "https://deno.land/x/ctrlc/mod.ts";
 
 const ctrlc: Disposable = setHandler(() => {
-    console.log('press ctrl + c, will exit');
-    Deno.exit();
-})
+  console.log("press ctrl + c, will exit");
+  Deno.exit();
+});
 
 // loop
 ```
 
 ### License
 
-[deno_ctrlc](https://github.com/justjavac/deno_ctrlc) is released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
+[deno_ctrlc](https://github.com/justjavac/deno_ctrlc) is released under the MIT
+License. See the bundled [LICENSE](./LICENSE) file for details.

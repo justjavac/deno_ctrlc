@@ -23,7 +23,7 @@ export function setHandler(onCtrlC: () => void = fnExit): Disposable {
 
   Deno.setRaw(Deno.stdin.rid, true);
   disposed = false;
-  
+
   function recursiveListen() {
     const data: Uint8Array = new Uint8Array(1);
     Deno.stdin.read(data).then(() => {
