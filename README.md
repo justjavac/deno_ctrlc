@@ -1,7 +1,7 @@
 # deno_ctrlc
 
 [![tag](https://img.shields.io/github/release/justjavac/deno_ctrlc)](https://github.com/justjavac/deno_ctrlc/releases)
-[![Build Status](https://github.com/justjavac/deno_ctrlc/workflows/ci/badge.svg?branch=master)](https://github.com/justjavac/deno_ctrlc/actions)
+[![ci](https://github.com/justjavac/deno_ctrlc/actions/workflows/ci.yml/badge.svg)](https://github.com/justjavac/deno_ctrlc/actions/workflows/ci.yml)
 [![license](https://img.shields.io/github/license/justjavac/deno_ctrlc)](https://github.com/justjavac/deno_ctrlc/blob/master/LICENSE)
 
 Cross platform handling of Ctrl-C signals.
