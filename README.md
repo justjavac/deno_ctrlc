@@ -25,12 +25,6 @@ console.log("press ctrl + c, will exit");
 // loop
 ```
 
-Or run:
-
-```bash
-deno run --unstable https://deno.land/x/ctrlc/example.ts
-```
-
 ### License
 
 [deno_ctrlc](https://github.com/justjavac/deno_ctrlc) is released under the MIT
