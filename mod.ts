@@ -21,7 +21,7 @@ export function setHandler(onCtrlC: () => void = fnExit): Disposable {
     };
   }
 
-  Deno.setRaw(Deno.stdin.rid, true);
+  Deno.stdin.setRaw(true);
   disposed = false;
 
   function recursiveListen() {
@@ -39,7 +39,7 @@ export function setHandler(onCtrlC: () => void = fnExit): Disposable {
   return {
     dispose: () => {
       disposed = true;
-      Deno.setRaw(Deno.stdin.rid, false);
+      Deno.stdin.setRaw(false);
       // pause
     },
   };
