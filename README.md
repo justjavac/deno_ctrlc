@@ -2,6 +2,12 @@
 
 Cross platform handling of Ctrl-C signals.
 
+## Try it
+
+```bash
+deno run --unstable https://deno.land/x/ctrlc/example.ts
+```
+
 ## Permissions
 
 - `--unstable`
